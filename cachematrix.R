@@ -10,10 +10,13 @@
 
 ## makeCacheMatrix takes a matrix and returns and "object" if I may call it so, with one attribute and some methods.
 ## the object is rappresented by a list in R.
-## In other languages this would be called a constructor
+## In other languages this would be called a constructor although it seems there are no classes in R so I dont know if 
+## this is correct
 
 ## the attribute is the variable m wich is first initialised to 0. 
-## method 'set' replace the value of the matrix with a new one within the closure of the object
+## method 'set' replace the value of the matrix with a new one within the closure of the object.
+## 'set' also reinitialises the value of m, so if this method is used the cached valued will be overwritten.
+
 ## method 'get' return the value of the matrix within the closure
 ## method 'setinverse' solve the the matrix and store the inverse in the variable m
 ## method 'getinverse' returns the value of the inverse matrix
