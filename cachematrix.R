@@ -1,16 +1,30 @@
-## Put comments here that give an overall description of what your
-## functions do
+##OVERALL DESCRIPTION
+##makeCacheMatrix takes a matrix and create an object with one attribute and 4 methods, 
+##which is rappresented in R as a list. 
 
-## Write a short comment describing this function
+##cacheSolve takes in the object created by the previous function as a list, and if the attribute m is 
+##equal to 0 it calculates the inverse matrix. Othervise it returns the value found in m 
 
-## makeCacheMatrix takes a matrix and returns and "object" I I may call it so, with one attributeand some methods.
+
+## DESCRIPTION OF makeCacheMatrix
+
+## makeCacheMatrix takes a matrix and returns and "object" if I may call it so, with one attribute and some methods.
+## the object is rappresented by a list in R.
+## In other languages this would be called a constructor
+
 ## the attribute is the variable m wich is first initialised to 0. 
-## method set replace the value of the matrix with a new one
+## method 'set' replace the value of the matrix with a new one within the closure of the object
+## method 'get' return the value of the matrix within the closure
+## method 'setinverse' solve the the matrix and store the inverse in the variable m
+## method 'getinverse' returns the value of the inverse matrix
+
+## list is the form in which the output is returned
 
 
 makeCacheMatrix <- function(x = numeric()) {
+        
         m <- NULL
-        z <- x
+        
         set <- function(y) {
                 x <<- y
                 m <<- NULL
@@ -25,13 +39,15 @@ makeCacheMatrix <- function(x = numeric()) {
 
 
 
-## Write a short comment describing this function
+## DESCRIPTION of cacheSolve
+
+## this function takes an object described as before, in the form of a list
+## it calls the method getinverse and if it returns zero it then calculate the inverse of the matrix.
+## otherwise it returns the inverse which is stored in m
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-        
         m <- x$getinverse()
-        if(!is.null(m)&& ) {
+        if(!is.null(m)) {
                 message("getting cached data")
                 return(m)
         }
@@ -40,4 +56,3 @@ cacheSolve <- function(x, ...) {
         x$setinverse(m)
         m
 }
-
